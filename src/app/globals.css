@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-gray-100 pb-[90px] overflow-x-hidden font-hind;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-6xl mx-auto;
+  }
+  
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary to-primary-dark;
+  }
+  
+  .gradient-secondary {
+    @apply bg-gradient-to-r from-secondary to-secondary-dark;
+  }
+  
+  .btn-primary {
+    @apply gradient-primary text-white font-bold py-3 px-6 rounded-full 
+           transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply gradient-secondary text-white font-bold py-3 px-6 rounded-full 
+           transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+  }
+}
+
+/* Custom Swiper Styles */
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-white bg-black/50 rounded-full w-10 h-10;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  @apply text-lg;
+}
+
+.swiper-pagination-bullet {
+  @apply bg-white/50;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-primary;
+}
+
+/* Toast Animation */
+.toast-container {
+  @apply fixed top-5 left-1/2 -translate-x-1/2 z-[10000] pointer-events-none;
+}
+
+.toast {
+  @apply gradient-primary text-white py-3 px-6 rounded-full font-semibold shadow-lg 
+         mb-2.5 flex items-center gap-2.5 pointer-events-auto min-w-[250px] justify-center
+         animate-[slideDown_0.3s_ease,_fadeOut_0.3s_ease_2.7s_forwards];
+}
+
+.toast.error {
+  @apply gradient-secondary;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  @apply fixed top-0 left-0 w-full h-full bg-white/90 z-[9999] 
+         hidden justify-center items-center;
+}
+
+.loading-overlay.active {
+  @apply flex;
+}
+
+.loading-spinner {
+  @apply w-[50px] h-[50px] border-4 border-gray-200 border-t-primary rounded-full 
+         animate-spin;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-200 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply gradient-primary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-dark;
+}
